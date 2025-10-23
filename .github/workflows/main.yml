@@ -4,39 +4,10 @@ on:
   workflow_dispatch:
     inputs:
 
-      enable_youpip:
-        description: "Integrate YouPiP"
-        type: boolean
-        required: true
-        default: false
-
-      enable_ytuhd:
-        description: "Integrate YTUHD"
-        type: boolean
-        required: true
-        default: false
-
-      enable_yq:
-        description: "Integrate YouQuality"
-        type: boolean
-        required: true
-        default: false
-
-      enable_ryd:
-        description: "Integrate Return YouTube Dislikes"
-        type: boolean
-        required: true
-        default: false
-
-      enable_demc:
-        description: "Integrate DontEatMyContent"
-        type: boolean
-        required: true
-        default: false
 
       ipa_url:
         description: "URL to the decrypted IPA file"
-        default: ""
+        default: "https://armconverter.com/decryptedappstore/download/885697368/com.chromanoir.Zeit/2.26.2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTkzMzkwIiwiaWF0IjoxNzYxMjMxOTg3LCJleHAiOjE3NjEyNDI3ODcsImFwcGlkIjo4ODU2OTczNjgsImFwcHZlciI6IjIuMjYuMiJ9.qYIvJSw-Djh4xGVBHa6n5zZuHp7Z6vSvEj-IxMAgX1Y"
         required: true
         type: string
 
@@ -297,15 +268,9 @@ jobs:
 
       - name: Inject tweaks into IPA
         run: |
-          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
+          tweaks=""
 
-          for f in *.deb; do
-            if [ -f "$f" ]; then
-              tweaks="$tweaks $f"
-            fi
-          done
-
-          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
+          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwef $tweaks -n 
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
