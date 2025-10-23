@@ -125,8 +125,8 @@ jobs:
         uses: softprops/action-gh-release@v2.0.1
         with:
           tag_name: ytp-${{ github.run_number }}
-          name: YouTubePlus v${{ inputs.tweak_version }} (${{ github.run_number }})
-          files: YouTubePlus_${{ inputs.tweak_version }}.ipa
+          name: Halide (${{ github.run_number }})
+          files: Halide.ipa
           draft: true
 
       - name: Output Release URL
