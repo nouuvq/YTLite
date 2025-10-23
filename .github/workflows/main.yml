@@ -299,13 +299,13 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for f in *.deby; do
+          for f in *.deb; do
             if [ -f "$f" ]; then
               tweaks="$tweaks $f"
             fi
           done
 
-          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
+          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwef -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
