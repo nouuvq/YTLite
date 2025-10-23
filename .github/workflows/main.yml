@@ -270,7 +270,7 @@ jobs:
         run: |
           tweaks=""
 
-          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwef $tweaks -n 
+          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwe
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
